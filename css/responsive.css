@@ -1,0 +1,130 @@
+/**
+ * ============================================================================
+ * RESPONSIVE LAYOUT MATRIX & MEDIA QUERIES - RESPONSIVE.CSS
+ * Project: Malik Tayyab Jamil - Portfolio Architecture
+ * Target Environment: Mobile, Tablet, Laptop, Ultra-wide Desktops
+ * ============================================================================
+ */
+
+/* ==========================================================================
+ * 1. LARGE DESKTOP & ULTRA-WIDE BREAKPOINT (> 1280px)
+ * ========================================================================== */
+@media (min-width: 1280px) {
+  :root {
+    --container-padding: var(--space-8);
+  }
+}
+
+/* ==========================================================================
+ * 2. TABLET & LAPTOP RESPONSIVE BREAKPOINT (< 1024px)
+ * ========================================================================== */
+@media (max-width: 1024px) {
+  :root {
+    --font-size-5xl: 2.5rem;    /* 40px */
+    --font-size-6xl: 3rem;      /* 48px */
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .hero-portrait-wrapper {
+    order: 2;
+  }
+
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blueprint-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+ * 3. MOBILE RESPONSIVE BREAKPOINT (< 640px)
+ * ========================================================================== */
+@media (max-width: 640px) {
+  :root {
+    --container-padding: var(--space-4);
+    --font-size-5xl: 2rem;      /* 32px */
+    --font-size-4xl: 1.75rem;   /* 28px */
+    --font-size-3xl: 1.5rem;    /* 24px */
+    --font-size-2xl: 1.25rem;   /* 20px */
+  }
+
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4,
+  .quick-facts-grid,
+  .skills-grid,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .swatch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-spec-box {
+    padding: var(--space-4);
+  }
+
+  .spec-table th, .spec-table td {
+    padding: var(--space-2);
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* ==========================================================================
+ * 4. PRINT STYLES (RECRUITER & PDF COMPATIBILITY)
+ * ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .btn, .badge-aws, .wcag-badge {
+    display: none !important;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 80%;
+  }
+}

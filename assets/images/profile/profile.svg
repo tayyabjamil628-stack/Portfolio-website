@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Background: Clean Studio Backdrop -->
+    <linearGradient id="studio-backdrop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="65%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+
+    <!-- Radial Soft Lighting Behind Head -->
+    <radialGradient id="head-glow" cx="50%" cy="35%" r="45%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#F1F5F9" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#E2E8F0" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Navy Blue Suit Jacket Gradients -->
+    <linearGradient id="suit-navy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#223354"/>
+      <stop offset="50%" stop-color="#192640"/>
+      <stop offset="100%" stop-color="#10192B"/>
+    </linearGradient>
+
+    <linearGradient id="suit-lapel-l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2B3F66"/>
+      <stop offset="100%" stop-color="#1C2945"/>
+    </linearGradient>
+
+    <linearGradient id="suit-lapel-r" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#26385C"/>
+      <stop offset="100%" stop-color="#17233B"/>
+    </linearGradient>
+
+    <!-- White Dress Shirt Gradients -->
+    <linearGradient id="shirt-white" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="80%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+
+    <linearGradient id="collar-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+
+    <!-- Natural South Asian Skin Tones -->
+    <linearGradient id="skin-face" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F3C39E"/>
+      <stop offset="45%" stop-color="#E6AF89"/>
+      <stop offset="100%" stop-color="#CF9671"/>
+    </linearGradient>
+
+    <linearGradient id="skin-neck" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D79C76"/>
+      <stop offset="100%" stop-color="#B67B55"/>
+    </linearGradient>
+
+    <linearGradient id="skin-jaw-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C28661" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#9C623E" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <!-- Hair Color & Texture -->
+    <linearGradient id="hair-base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#33251D"/>
+      <stop offset="45%" stop-color="#211712"/>
+      <stop offset="100%" stop-color="#0E0A08"/>
+    </linearGradient>
+
+    <linearGradient id="hair-highlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#543C30"/>
+      <stop offset="100%" stop-color="#33251D"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="portrait-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+
+    <filter id="head-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1E293B" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Studio Canvas -->
+  <rect width="600" height="800" fill="url(#studio-backdrop)"/>
+  <rect width="600" height="800" fill="url(#head-glow)"/>
+
+  <!-- Main Subject Group -->
+  <g filter="url(#portrait-shadow)">
+
+    <!-- SUIT JACKET & BODY (Matching photo: Navy Blue Suit, Arms Behind Back Pose) -->
+    <!-- Base Suit Shoulders -->
+    <path d="M 90 800 C 110 520, 185 435, 300 435 C 415 435, 490 520, 510 800 Z" fill="url(#suit-navy)"/>
+    
+    <!-- Arm Folds & Side Torso Silhouette (Hands behind back) -->
+    <path d="M 90 800 L 150 500 C 180 455, 220 440, 300 440 C 380 440, 420 455, 450 500 L 510 800 Z" fill="url(#suit-navy)"/>
+    
+    <!-- Under-arm contour shadows -->
+    <path d="M 90 800 C 115 640, 150 540, 190 490 L 220 800 Z" fill="#0F192B" opacity="0.5"/>
+    <path d="M 510 800 C 485 640, 450 540, 410 490 L 380 800 Z" fill="#0F192B" opacity="0.5"/>
+
+    <!-- Inner Suit Opening -->
+    <polygon points="215,800 240,450 300,485 360,450 385,800" fill="#0A111F"/>
+
+    <!-- Unbuttoned White Dress Shirt -->
+    <path d="M 240 800 L 250 420 L 300 460 L 350 420 L 360 800 Z" fill="url(#shirt-white)"/>
+    <path d="M 282 460 L 318 460 L 308 800 L 292 800 Z" fill="#CBD5E1" opacity="0.3"/>
+
+    <!-- Shirt Open Collar (Casual Executive, No Tie) -->
+    <polygon points="248,395 280,460 265,472 232,410" fill="#FFFFFF"/>
+    <polygon points="352,395 320,460 335,472 368,410" fill="#FFFFFF"/>
+    <polygon points="254,400 278,455 268,465 242,410" fill="url(#collar-shadow)"/>
+    <polygon points="346,400 322,455 332,465 358,410" fill="url(#collar-shadow)"/>
+
+    <!-- Tailored Suit Lapels -->
+    <polygon points="150,500 240,450 262,595 195,800" fill="url(#suit-lapel-l)"/>
+    <polygon points="450,500 360,450 338,595 405,800" fill="url(#suit-lapel-r)"/>
+
+    <!-- Shirt Buttons -->
+    <circle cx="300" cy="510" r="3" fill="#94A3B8"/>
+    <circle cx="300" cy="580" r="3" fill="#94A3B8"/>
+    <circle cx="300" cy="650" r="3" fill="#94A3B8"/>
+
+    <!-- Neck & Throat -->
+    <path d="M 258 365 L 258 425 C 258 445, 342 445, 342 425 L 342 365 Z" fill="url(#skin-neck)"/>
+    <path d="M 265 365 L 265 420 C 265 435, 335 435, 335 420 L 335 365 Z" fill="url(#skin-face)"/>
+    <path d="M 275 420 C 290 430, 310 430, 325 420 C 315 426, 285 426, 275 420 Z" fill="#9C623E" opacity="0.35"/>
+
+    <!-- HEAD & FACIAL FEATURES (Matching exact photo of Malik Tayyab Jamil) -->
+    <!-- Head Contour -->
+    <g filter="url(#head-shadow)">
+      <path d="M 210 230 
+               C 210 130, 390 130, 390 230 
+               C 390 318, 360 380, 300 380 
+               C 240 380, 210 318, 210 230 Z" fill="url(#skin-face)"/>
+    </g>
+
+    <!-- Soft Jaw & Cheek Shading -->
+    <path d="M 215 255 C 220 320, 248 372, 300 376 C 258 370, 222 320, 218 255 Z" fill="url(#skin-jaw-shadow)"/>
+    <path d="M 385 255 C 380 320, 352 372, 300 376 C 342 370, 378 320, 382 255 Z" fill="url(#skin-jaw-shadow)"/>
+
+    <!-- Ears -->
+    <ellipse cx="206" cy="250" rx="12" ry="22" fill="url(#skin-face)"/>
+    <ellipse cx="394" cy="250" rx="12" ry="22" fill="url(#skin-face)"/>
+    <ellipse cx="208" cy="250" rx="6" ry="14" fill="#CF9671"/>
+    <ellipse cx="392" cy="250" rx="6" ry="14" fill="#CF9671"/>
+
+    <!-- Light Trimmed Stubble (Matching photo: subtle natural facial hair along jaw/chin) -->
+    <path d="M 224 298 C 224 350, 254 374, 300 374 C 346 374, 376 350, 376 298 C 376 332, 350 368, 300 368 C 250 368, 224 332, 224 298 Z" fill="#38261C" opacity="0.30"/>
+
+    <!-- Nose (Refined South Asian nose profile) -->
+    <path d="M 294 220 L 306 220 L 307 282 C 307 290, 293 290, 293 282 Z" fill="#CF9671" opacity="0.4"/>
+    <path d="M 288 284 Q 300 292 312 284" stroke="#874D29" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <ellipse cx="292" cy="285" rx="3" ry="2" fill="#6B391C" opacity="0.5"/>
+    <ellipse cx="308" cy="285" rx="3" ry="2" fill="#6B391C" opacity="0.5"/>
+
+    <!-- Eyebrows (Full, masculine, naturally arched) -->
+    <path d="M 230 208 Q 258 196 282 207" stroke="url(#hair-base)" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+    <path d="M 318 207 Q 342 196 370 208" stroke="url(#hair-base)" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Eyes (Warm brown, focused executive gaze) -->
+    <ellipse cx="255" cy="225" rx="15" ry="9" fill="#FFFFFF"/>
+    <ellipse cx="345" cy="225" rx="15" ry="9" fill="#FFFFFF"/>
+    
+    <!-- Irises -->
+    <circle cx="255" cy="225" r="7.5" fill="#24160E"/>
+    <circle cx="345" cy="225" r="7.5" fill="#24160E"/>
+
+    <!-- Pupils & Studio Catchlights -->
+    <circle cx="255" cy="225" r="3" fill="#000000"/>
+    <circle cx="345" cy="225" r="3" fill="#000000"/>
+    <circle cx="253" cy="223" r="2" fill="#FFFFFF"/>
+    <circle cx="343" cy="223" r="2" fill="#FFFFFF"/>
+
+    <!-- Eyelids -->
+    <path d="M 238 224 Q 255 214 272 224" stroke="#1F1612" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M 328 224 Q 345 214 362 224" stroke="#1F1612" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Lips (Natural expression matching photo) -->
+    <path d="M 270 324 Q 300 319 330 324" stroke="#874D29" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M 273 324 Q 300 336 327 324" fill="#B96B4B" opacity="0.85"/>
+    <path d="M 270 324 Q 300 328 330 324" stroke="#5C3119" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+    <!-- HAIR (Stylized dark hair, full top volume with sweep matching photo) -->
+    <path d="M 198 230 
+             C 188 170, 212 115, 260 95 
+             C 300 80, 365 85, 395 125 
+             C 410 155, 405 210, 395 235 
+             C 385 190, 372 145, 340 125 
+             C 310 110, 258 115, 226 152 
+             C 205 182, 202 215, 198 230 Z" fill="url(#hair-base)"/>
+
+    <!-- Hair Highlights & Volume Strands -->
+    <path d="M 205 200 C 215 120, 288 85, 342 90 C 378 95, 398 125, 398 160 C 388 120, 342 100, 292 105 C 248 110, 218 150, 205 200 Z" fill="url(#hair-highlight)"/>
+    <path d="M 235 110 C 275 80, 338 85, 368 115 C 338 95, 288 92, 248 115 Z" fill="#543C30"/>
+    
+    <!-- Forehead Swept Locks (Signature hairstyle from user photo) -->
+    <path d="M 248 115 C 268 130, 282 160, 272 185 C 288 160, 282 130, 262 118 Z" fill="url(#hair-base)"/>
+    <path d="M 282 105 C 308 125, 328 165, 318 190 C 332 160, 322 125, 298 108 Z" fill="url(#hair-base)"/>
+
+  </g>
+</svg>

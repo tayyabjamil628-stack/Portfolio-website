@@ -1,0 +1,11 @@
+# Production Robots.txt for Malik Tayyab Jamil Portfolio
+User-agent: *
+Allow: /
+
+# Disallow build and administrative assets
+Disallow: /node_modules/
+Disallow: /src/
+
+# Crawl Delay & Sitemap Reference
+Crawl-delay: 1
+Sitemap: https://tayyabjamil.com/sitemap.xml
