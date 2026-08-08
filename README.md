@@ -286,19 +286,37 @@ The site was manually tested across the following dimensions:
 
 ---
 
-## 🖼️ Screenshots
+## 📸 Portfolio Preview
 
-> Add screenshots to `screenshots/` and reference them below.
+### 🖥️ Desktop
 
-| View | Screenshot |
-| :--- | :--- |
-| Hero / Landing Section (Light Mode) | _`screenshots/hero-light.png`_ |
-| Hero / Landing Section (Dark Mode) | _`screenshots/hero-dark.png`_ |
-| Projects Section | _`screenshots/projects.png`_ |
-| Mobile Responsive View | _`screenshots/mobile-view.png`_ |
-| GitHub Actions Workflow (Successful Run) | _`screenshots/actions-run.png`_ |
-| AWS S3 Bucket Contents | _`screenshots/s3-bucket.png`_ |
+![Hero](screenshots/desktop/01-hero-desktop.png)
 
+![About](screenshots/desktop/02-about-desktop.png)
+
+![Skills](screenshots/desktop/03-skills-desktop.png)
+
+![Projects](screenshots/desktop/04-projects-desktop.png)
+
+![Experience & Education](screenshots/desktop/05-experience-education.png)
+
+![Contact](screenshots/desktop/06-contact-desktop.png)
+
+![Footer](screenshots/desktop/07-footer-desktop.png)
+
+### 🌓 Theme Support
+
+![Dark Mode](screenshots/themes/08-hero-dark-mode.png)
+
+![Light Mode](screenshots/themes/09-hero-light-mode.png)
+
+### 📱 Mobile Responsive Design
+
+![Mobile Hero](screenshots/mobile/10-mobile-hero.png)
+
+![Mobile Projects](screenshots/mobile/11-mobile-projects.png)
+
+![Mobile Contact](screenshots/mobile/12-mobile-contact.png)
 ---
 
 ## 🔮 Future Improvements
