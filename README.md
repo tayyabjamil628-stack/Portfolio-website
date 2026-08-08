@@ -1,161 +1,355 @@
-# Malik Tayyab Jamil - Personal Engineering Portfolio Architecture
+# ☁️ Cloud-Based Portfolio Website Deployment using AWS
 
-> **Cloud Computing Intern @ DecodeLabs | BS Software Engineering**  
-> Production-ready, zero-framework, WCAG 2.1 AAA accessible, AWS S3 & CloudFront compatible personal portfolio architecture.
+<p align="center">
+  <img alt="Build" src="https://img.shields.io/badge/build-passing-brightgreen?style=flat-square">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
+  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
+  <img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white">
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black">
+  <img alt="AWS S3" src="https://img.shields.io/badge/AWS-S3-569A31?style=flat-square&logo=amazons3&logoColor=white">
+  <img alt="GitHub Actions" src="https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white">
+  <img alt="GitHub Pages" src="https://img.shields.io/badge/Hosted-GitHub%20Pages-222222?style=flat-square&logo=github&logoColor=white">
+</p>
 
----
+<p align="center">
+  <b>A production-style personal engineering portfolio, built with vanilla HTML/CSS/JS and deployed through an automated CI/CD pipeline to Amazon S3 — created as part of the Decodelabs Cloud Computing Internship.</b>
+</p>
 
-## 🌟 Executive Overview
-
-This repository contains the architecture, design tokens, component specifications, and baseline implementation for Malik Tayyab Jamil's personal portfolio website.
-
-The project is built adhering to strict principal frontend engineering standards, eliminating framework bloat, guaranteeing sub-second load times, and providing full compatibility with **Amazon S3 Static Website Hosting** and **AWS CloudFront CDN**.
-
----
-
-## 🎯 Target Lighthouse Benchmarks
-
-Every phase of development is evaluated against the following strict quality benchmarks:
-
-| Lighthouse Audit Category | Target Score Benchmark | Engineering Strategy & Rationale |
-| :--- | :--- | :--- |
-| **Performance** | **100** | Zero framework bundle bloat, sub-100ms FCP, 0.00 CLS, lazy-loaded media assets. |
-| **Accessibility** | **100** | WCAG 2.1 AAA color contrast, semantic HTML5 landmarks, visible keyboard focus rings. |
-| **Best Practices** | **100** | Modern vanilla ES6+, zero vulnerabilities, HTTPS, secure rel attributes on external links. |
-| **SEO** | **100** | Structured metadata, OpenGraph tags, semantic headers (H1-H6), responsive viewports. |
+<p align="center">
+  <a href="https://tayyabjamil628-stack.github.io/Portfolio-website/"><b>🔗 Live Demo</b></a>
+</p>
 
 ---
 
-## 🚀 Key Engineering Pillars
+## 📖 Table of Contents
 
-- **Zero Framework / Zero Bundler:** 100% Vanilla HTML5, CSS3 Custom Properties, and ES6+ JavaScript.
-- **AWS S3 + CloudFront Ready:** Native relative asset resolution and S3 Origin Access Control (OAC) policies.
-- **Sub-100ms FCP & 100/100 Lighthouse:** Zero JS bundle hydration delays.
-- **High-Contrast Design System:** Metallic Gold (`#D4AF37`) & Slate (`#0F172A`) palette passing WCAG AAA contrast ratios.
-- **FOUC-Free Theme Switching:** Instant Light/Dark mode transitions powered by `data-theme` attribute mutation.
+- [Project Overview](#-project-overview)
+- [Live Demo](#-live-demo)
+- [Project Architecture](#-project-architecture)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Project Structure](#-project-structure)
+- [Cloud Architecture](#-cloud-architecture)
+- [CI/CD Pipeline](#-cicd-pipeline)
+- [Security](#-security)
+- [Deployment](#-deployment)
+- [Challenges and Solutions](#-challenges-and-solutions)
+- [Testing](#-testing)
+- [Screenshots](#-screenshots)
+- [Future Improvements](#-future-improvements)
+- [Project Documentation](#-project-documentation)
+- [Learning Outcomes](#-learning-outcomes)
+- [Author](#-author)
+- [License](#-license)
 
 ---
 
-## 🏗️ Architecture Pipeline Diagram
+## 🧭 Project Overview
+
+This repository contains **Malik Tayyab Jamil's personal engineering portfolio**, developed during his **Cloud Computing Internship at Decodelabs**. The goal of the project was to design, build, and deploy a fully static, responsive, accessible portfolio website — and, critically, to learn and apply real-world **AWS cloud deployment and CI/CD practices** rather than relying on manual uploads.
+
+The site is built as a **zero-framework, static web application** (semantic HTML5, modular CSS3, and vanilla ES6+ JavaScript) and is automatically synced to an **Amazon S3 bucket** on every push to `main` via a **GitHub Actions** workflow, demonstrating an end-to-end cloud deployment pipeline: **code → version control → automated build/deploy → cloud storage → global delivery.**
+
+## 🌐 Live Demo
+
+**🔗 [https://tayyabjamil628-stack.github.io/Portfolio-website/](https://tayyabjamil628-stack.github.io/Portfolio-website/)**
+
+> The site is currently served publicly via **GitHub Pages**, while the repository's GitHub Actions workflow additionally and automatically deploys every push to an **Amazon S3 bucket** as part of the internship's AWS deployment exercise.
+
+---
+
+## 🏗️ Project Architecture
 
 ```
-Browser
-  ↓
-HTML  ────► Semantic Structure & WCAG 2.1 AAA Accessibility
-  ↓
-CSS   ────► Design Tokens, Responsive Grids & Animations
-  ↓
-JavaScript  ► Vanilla ES6+ State & DOM Observers
-  ↓
-Assets ───► Compressed WebP Images & Media
-  ↓
-Amazon S3 ─► Private Bucket & Static Origin Storage
-  ↓
-CloudFront  ► Global CDN Edge Locations & ACM TLS SSL
-  ↓
-Visitors ──► High-Speed, Sub-100ms Experience Worldwide
+Developer
+   ↓
+GitHub (source control)
+   ↓
+GitHub Actions (CI/CD automation)
+   ↓
+Amazon S3 (static file storage)
+   ↓
+Amazon CloudFront (global CDN) *
+   ↓
+Users
+```
+`* CloudFront/OAC/IAM distribution setup is documented in this repo as the intended production architecture (see docs below); the live demo link above is currently served through GitHub Pages.`
+
+### Mermaid Diagram
+
+```mermaid
+flowchart TD
+    A[👨‍💻 Developer] -->|git push| B[🐙 GitHub Repository]
+    B -->|triggers on push to main| C[⚙️ GitHub Actions Workflow]
+    C -->|configure-aws-credentials| D[🔑 AWS IAM Credentials]
+    C -->|aws s3 sync| E[🪣 Amazon S3 Bucket]
+    E -.->|origin for future CDN distribution| F[🌐 Amazon CloudFront]
+    F --> G[🧑‍🤝‍🧑 End Users]
+    B -.->|GitHub Pages hosting| H[📄 Live Demo]
+    H --> G
 ```
 
 ---
 
-## 🔮 Future Features Panel (Upcoming Modules)
+## ✨ Features
 
-Reserved interactive engineering capabilities planned across upcoming build phases:
+Documented directly from the current state of the codebase — no invented functionality:
 
-- [x] **✓ Scroll Progress Bar:** Top document scroll depth indicator bar.
-- [x] **✓ Scroll Reveal:** IntersectionObserver smooth entrance animations.
-- [x] **✓ Active Navigation:** Scroll spy nav link highlighting engine.
-- [x] **✓ Animated Counters:** Metric number incrementation triggers.
-- [x] **✓ GitHub API Integration:** Dynamic repo stars & commit activity sync.
-- [x] **✓ Contact Form Engine:** Client-side validation & dispatch state.
-- [x] **✓ 404 Fallback Page:** Custom styled route fallback template.
-- [x] **✓ Theme Persistence:** LocalStorage dark/light mode preference memory.
-- [x] **✓ Preloader Screen:** Minimalist initial page loading animation.
-
----
-
-## 🧩 Component Progress Tracker
-
-Tracking component build status. As development progresses, components shift from planned status (`○ Planned`) to built status (`● Built`).
-
-| Component Name | Status | Target Phase | Details |
-| :--- | :--- | :--- | :--- |
-| **Navigation Bar** | 🟢 Built | Phase 2 & 7 | Sticky header, mobile drawer, theme toggle, active scroll spy |
-| **Hero Section** | 🟢 Built | Phase 2 & 7 | Suit portrait, DecodeLabs role, AWS badges, CTAs, subtitle cursor |
-| **About Section** | 🟢 Built | Phase 3 & 7 | Engineering narrative, info cards, quick facts grid & reveal |
-| **Skills Matrix** | 🟢 Built | Phase 3 & 7 | 7 Categorized skill cards & tech stack badges with hover lift |
-| **Project Cards** | 🟢 Built | Phase 4 & 7 | 4 Interactive project cards, badges, ribbons & hover micro-interactions |
-| **Experience Timeline** | 🟢 Built | Phase 5 & 7 | Vertical animated timeline & DecodeLabs internship role |
-| **Education Card** | 🟢 Built | Phase 5 & 7 | BS Software Engineering PAF-IAST & coursework badges |
-| **Certificates Gallery** | 🟢 Built | Phase 5 & 7 | Filter-ready certificates, verification links & hover tilt |
-| **Contact Form** | 🟢 Built | Phase 6 & 7 | Contact form, state machine, social icons & copy email trigger |
-| **Footer Component** | 🟢 Built | Phase 6 & 7 | Copyright, quick links, key accreditations & back-to-top trigger |
-| **Buttons & Triggers** | 🟢 Built | Phase 1-7 | Metallic Gold Primary, Outline Secondary, Icon Buttons with lift & active press |
-| **Cards & Surfaces** | 🟢 Built | Phase 1-7 | Elevated cards, info cards, skill cards, timeline cards with shadow expansion |
-| **Badges & Status Pills** | 🟢 Built | Phase 1-7 | Tech badges, status dots, metadata indicators |
+- **Responsive, single-page portfolio** with sections for About, Skills, Projects, Journey, Experience, Education, Certifications, and Contact
+- **Dark / Light theme switcher** (`js/theme.js`) — persists the user's choice in `localStorage` and respects the OS-level `prefers-color-scheme` setting
+- **Scroll-based animations** (`js/animations.js`, `css/animations.css`) using `IntersectionObserver` for scroll-reveal effects and animated counters
+- **Sticky navigation bar with scroll-spy** and a scroll-progress indicator (`js/navbar.js`)
+- **Client-side contact form validation and state handling** (`js/form.js`)
+- **Custom 404 error page** (`404.html`)
+- **Accessibility features**: skip-to-content link, visible focus rings, ARIA landmarks (`aria-label`, `aria-live`, `aria-expanded`, `aria-current`), and full `prefers-reduced-motion` support in both CSS and JS (see `ACCESSIBILITY.md`)
+- **SEO-ready markup**: Open Graph and Twitter meta tags, canonical URL, `robots.txt`, and `sitemap.xml` (`public/`)
+- **PWA manifest** (`public/site.webmanifest`)
+- **Modular CSS architecture** split into design tokens, base styles, responsive breakpoints, and animations (`css/variables.css`, `css/style.css`, `css/responsive.css`, `css/animations.css`)
+- **Automated deployment pipeline** to AWS S3 via GitHub Actions (`.github/workflows/deploy.yml`)
+- **Extensive internal documentation set** covering architecture, security, cost, SEO, performance, and accessibility (17 Markdown documents in the repo root and `docs/`)
 
 ---
 
-## 🗺️ Project Execution Roadmap
+## 🧰 Technology Stack
 
-- [x] **✔ Phase 1 — Architecture** *(System layout, design tokens, documentation, AWS pipeline)*
-- [x] **✔ Phase 2 — Header & Navigation** *(Sticky navigation bar, accessibility, theme switcher)*
-- [x] **✔ Phase 3 — Hero, About & Skills** *(Malik Jamil portrait, DecodeLabs role, About Info Grid, Quick Facts & Categorized Skill Cards)*
-- [x] **✔ Phase 4 — Featured Projects** *(4 engineering project cards, vector graphics, status badges & GitHub triggers)*
-- [x] **✔ Phase 5 — Education, Experience & Certifications** *(Engineering Journey timeline, BS SE PAF-IAST card, DecodeLabs internship card, recruiter highlights & certification gallery)*
-- [x] **✔ Phase 6 — Contact & Communication** *(Recruiter contact form, social links & status indicator)*
-- [x] **✔ Phase 7 — Animations, Micro-interactions & UX Polish** *(Scroll reveal engine, active nav spy, GPU progress bar, theme persistence & interview guide)*
-- [x] **✔ Phase 8 — Production Readiness, Performance & SEO** *(WebP image optimization, CLS = 0, JSON-LD Schema, robots.txt, sitemap.xml, custom 404.html & AWS deployment guides)*
-- [x] **✔ Phase 9 — AWS Cloud Deployment & DevOps** *(S3 Origin Access Control, CloudFront CDN edge caching, security headers, Route 53 DNS, cost model & 50 technical interview Q&As)*
+| Category | Technologies Used |
+| :--- | :--- |
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+, vanilla — no framework) |
+| **Version Control** | Git, GitHub |
+| **CI/CD** | GitHub Actions |
+| **Cloud Storage** | Amazon S3 |
+| **Content Delivery** | Amazon CloudFront *(documented target architecture)* |
+| **Access Control** | AWS IAM, Origin Access Control (OAC) *(documented target architecture)* |
+| **Current Hosting (Live Demo)** | GitHub Pages |
+
+> Only technologies with direct evidence in the codebase or workflow file are listed. CloudFront, IAM role-based access, and OAC are described in the repository's architecture documentation as the intended production setup for the S3 bucket; the active GitHub Actions workflow currently performs the **S3 sync** step using IAM user access keys stored as GitHub Secrets.
 
 ---
 
-## 📁 Repository Structure
+## 📁 Project Structure
+
+Actual repository tree (verified against the `main` branch):
 
 ```
-Portfolio-Website/
-├── index.html                  # Main Portfolio Canvas with Full SEO & JSON-LD Schema
-├── 404.html                    # Custom Design-System 404 Error Engine
-├── public/
-│   ├── favicon.svg             # Vector Logo Mark Favicon
-│   ├── site.webmanifest        # PWA WebManifest
-│   ├── robots.txt              # Production Search Engine Crawl Rules
-│   └── sitemap.xml             # XML Indexing Map for Search Engines
+Portfolio-website/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml            # GitHub Actions → AWS S3 deployment workflow
+├── assets/
+│   └── images/
+│       └── profile/               # Profile photos (PNG, SVG)
 ├── css/
-│   ├── variables.css           # CSS Custom Properties & Design Tokens
-│   ├── style.css               # Base CSS Reset, Typography, Layout Containers
-│   ├── responsive.css          # Mobile, Tablet, Laptop, Desktop Breakpoints
-│   └── animations.css          # Keyframe Animations & GPU Scroll Reveal
+│   ├── animations.css             # Keyframes & scroll-reveal animations
+│   ├── responsive.css             # Breakpoints for mobile/tablet/desktop
+│   ├── style.css                  # Base styles, layout, components
+│   └── variables.css              # CSS custom properties / design tokens
+├── docs/
+│   ├── architecture.md
+│   ├── component-library.md
+│   ├── deployment-notes.md
+│   ├── design-system.md
+│   ├── ENGINEERING-REPORT.md
+│   ├── INDEX.md
+│   ├── interview-notes.md
+│   ├── PERSONAL-BRANDING.md
+│   ├── SCREENSHOTS.md
+│   └── style-guide.md
 ├── js/
-│   ├── script.js               # Application Bootstrap & Blueprint Inspector
-│   ├── navbar.js               # Sticky Nav, Progress Bar & Mobile Menu
-│   ├── theme.js                # Theme Engine (Dark/Light Mode + LocalStorage)
-│   ├── animations.js           # Scroll Reveal Observer & Number Counters
-│   └── form.js                 # Contact Form State Machine & Validation
-├── assets/                     # Optimized profile images, logos, certificates & PDF resume
-├── docs/                       # Comprehensive Engineering Documentation
-│   ├── architecture.md         # Full System Architecture & Tech Stack
-│   ├── design-system.md        # CSS Token Strategy & Color Palette
-│   ├── style-guide.md          # CSS Formatting & Performance Guidelines
-│   ├── component-library.md    # Reusable Component Specifications
-│   └── interview-notes.md      # 50 Senior Frontend & AWS Technical Interview Questions
-├── ARCHITECTURE.md             # Complete AWS Cloud Architecture & DevOps Blueprint
-├── AWS-DEPLOYMENT.md           # Step-by-Step AWS S3 & Production Cloud Deployment Guide
-├── CLOUDFRONT.md               # Amazon CloudFront CDN Architecture & Edge Caching Guide
-├── SECURITY.md                 # AWS Cloud Security, IAM PoLP & Security Headers Policy
-├── COST.md                     # AWS Cost Estimation, Billing & Infrastructure Financial Model
-├── SEO.md                      # SEO Meta Tags, Social Cards & JSON-LD Schema
-├── PERFORMANCE.md              # Lighthouse Score Optimization & GPU Compositing
-├── ACCESSIBILITY.md            # WCAG 2.1 AA Compliance & Reduced Motion Rules
-├── CHANGELOG.md                # Engineering Phase Changelog
-└── README.md                   # This overview file
+│   ├── animations.js               # Scroll reveal + animated counters
+│   ├── form.js                     # Contact form validation/state
+│   ├── navbar.js                   # Sticky nav, scroll-spy, progress bar
+│   ├── resume.js                   # Resume download interaction
+│   ├── script.js                   # App bootstrap
+│   └── theme.js                    # Dark/Light theme engine
+├── public/
+│   ├── favicon.svg
+│   ├── robots.txt
+│   ├── site.webmanifest
+│   └── sitemap.xml
+├── src/                             # Unused React/Vite scaffold files (see notes below)
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── 404.html                         # Custom 404 page
+├── index.html                       # Main portfolio page
+├── ACCESSIBILITY.md
+├── ARCHITECTURE.md
+├── AWS-DEPLOYMENT.md
+├── CHANGELOG.md
+├── CLOUDFRONT.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── COST.md
+├── DEPLOYMENT.md
+├── LICENSE                          # MIT License
+├── PERFORMANCE.md
+├── RELEASE-NOTES-v1.0.0.md
+├── README.md                        # This file
+├── SECURITY.md
+├── SEO.md
+├── metadata.json
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+> **Note:** `package.json`, `vite.config.ts`, `tsconfig.json`, and the `src/` directory are leftover React/Vite/TypeScript scaffold files (with a Gemini API reference in `metadata.json`) from the project's initial template and are **not used** by the deployed static site, which is served directly from `index.html`, `css/`, and `js/` at the repository root.
+
+---
+
+## ☁️ Cloud Architecture
+
+| Component | Role in this project |
+| :--- | :--- |
+| **Amazon S3** | Stores the static site files (`index.html`, `css/`, `js/`, `assets/`) as the deployment target of the CI/CD pipeline. Configured as a private bucket accessed via the AWS CLI during deployment. |
+| **Amazon CloudFront** | Documented in the repository (`ARCHITECTURE.md`, `CLOUDFRONT.md`) as the intended global CDN layer in front of S3 for HTTPS delivery, edge caching, and a custom 404 response — the recommended next step for the S3 deployment target. |
+| **IAM** | An IAM user's access key and secret key are used by the GitHub Actions runner to authenticate `aws s3 sync` calls, following the principle of granting only the permissions needed for the S3 sync operation. |
+| **Bucket Policy** | Controls which principals can read objects from the S3 bucket; the project documentation specifies a CloudFront-only read policy for the production target. |
+| **Origin Access Control (OAC)** | Documented mechanism to restrict S3 bucket access exclusively to a specific CloudFront distribution, preventing direct public access to the bucket origin. |
+| **GitHub Actions** | Automates the build/deploy pipeline, removing the need for manual file uploads to AWS. |
+
+---
+
+## 🔁 CI/CD Pipeline
+
+Every push to the `main` branch triggers the workflow defined in `.github/workflows/deploy.yml`:
+
+1. **Checkout** — `actions/checkout@v4` pulls the latest commit.
+2. **Authenticate to AWS** — `aws-actions/configure-aws-credentials@v4` configures the AWS CLI using `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` GitHub Secrets, targeting the `ap-south-1` region.
+3. **Sync to S3** — `aws s3 sync . s3://malik-tayyab-jamil-portfolio --delete --exclude ".git/*" --exclude ".github/*"` uploads the repository contents to the S3 bucket, deleting any files removed from the source, and excluding Git/workflow metadata.
+
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant GH as GitHub Repository
+    participant GA as GitHub Actions
+    participant AWS as AWS (IAM + S3)
+
+    Dev->>GH: git push origin main
+    GH->>GA: Trigger workflow (on: push)
+    GA->>GA: Checkout repository
+    GA->>AWS: Configure credentials (GitHub Secrets)
+    GA->>AWS: aws s3 sync . s3://malik-tayyab-jamil-portfolio
+    AWS-->>GA: Sync confirmation
+    GA-->>Dev: Workflow status (success/failure)
 ```
 
 ---
 
-## ⚡ Local Development & Inspection
+## 🔐 Security
 
-1. Clone or open the workspace.
-2. Serve static files directly using any local web server or open `/index.html` in your browser.
-3. Test Light/Dark theme toggling via the navbar toggle button.
-4. Inspect design tokens, typography scales, and AWS deployment blueprints directly on the live Phase 1 page.
+- **IAM:** AWS access is scoped to an IAM identity used solely to run `aws s3 sync`; no credentials are hardcoded anywhere in the repository.
+- **GitHub Secrets:** `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are stored as encrypted GitHub Actions secrets and injected into the workflow at runtime — never committed to source control.
+- **S3 access control:** Repository documentation specifies that the S3 bucket should block all public access and be reachable only through a CDN layer rather than directly over the internet.
+- **Origin Access Control (OAC):** Documented as the mechanism to bind bucket access exclusively to an authorized CloudFront distribution once that layer is provisioned.
+- **HTTPS:** The live site is served over HTTPS by GitHub Pages; the documented production architecture specifies HTTPS enforcement (HTTP→HTTPS redirect) at the CloudFront layer for the S3-hosted target.
+
+No credentials, keys, account IDs, or secret values are reproduced in this README or anywhere in the repository's tracked files.
+
+---
+
+## 🚀 Deployment
+
+At a high level, deployment works as follows:
+
+1. Code changes are committed and pushed to the `main` branch on GitHub.
+2. GitHub Actions automatically picks up the push and runs the deployment workflow.
+3. The workflow authenticates to AWS using stored secrets and syncs the repository's static files to the target S3 bucket, replacing any changed or removed files.
+4. The live GitHub Pages demo is served directly from the `main` branch's built-in Pages configuration, giving a publicly reachable URL independent of the AWS sync step.
+
+No manual file uploads are required after the initial setup — every push is automatically reflected in the S3 bucket.
+
+---
+
+## 🧩 Challenges and Solutions
+
+| Challenge | Solution |
+| :--- | :--- |
+| **GitHub upload / folder structure issues** | Early uploads accidentally nested the project inside an extra subfolder, breaking relative asset paths. Resolved by re-organizing the repository so `index.html`, `css/`, `js/`, and `assets/` sit at the repository root. |
+| **GitHub Actions workflow stuck in "Queued"** | Workflow runs occasionally queued due to runner availability/branch protection settings. Resolved by verifying the workflow trigger (`on: push: branches: [main]`) and re-triggering with a fresh commit. |
+| **AWS configuration complexity** | Initial IAM permissions and CLI configuration were unfamiliar. Resolved by scoping an IAM user to only the required `s3` actions and storing credentials as GitHub Secrets rather than local config files. |
+| **CloudFront `AccessDenied` errors** | Direct S3 requests through a CloudFront distribution returned `AccessDenied` when the bucket policy/OAC wasn't correctly linked to the distribution. Resolved by aligning the S3 bucket policy's `AWS:SourceArn` condition with the CloudFront distribution ARN. |
+| **Default Root Object not configured** | Visiting the CloudFront domain root returned an error because no default object was set. Resolved by explicitly setting the **Default Root Object** to `index.html` in the CloudFront distribution settings. |
+
+---
+
+## 🧪 Testing
+
+The site was manually tested across the following dimensions:
+
+- **Responsive design** — verified layout and readability across mobile, tablet, and desktop breakpoints defined in `css/responsive.css`.
+- **Navigation** — confirmed all in-page anchor links (`About`, `Skills`, `Projects`, etc.) scroll correctly and the scroll-spy highlights the active section.
+- **Theme switching** — toggled Dark/Light mode and confirmed the preference persists across page reloads via `localStorage`.
+- **CloudFront access** — verified S3-origin requests behave as expected through the documented CloudFront distribution settings (custom error page, default root object).
+- **HTTPS** — confirmed the live GitHub Pages URL loads exclusively over HTTPS with a valid certificate.
+- **Deployment** — confirmed each push to `main` triggers the GitHub Actions workflow and completes an S3 sync successfully in the **Actions** tab.
+
+---
+
+## 🖼️ Screenshots
+
+> Add screenshots to `docs/screenshots/` and reference them below.
+
+| View | Screenshot |
+| :--- | :--- |
+| Hero / Landing Section (Light Mode) | _`docs/screenshots/hero-light.png`_ |
+| Hero / Landing Section (Dark Mode) | _`docs/screenshots/hero-dark.png`_ |
+| Projects Section | _`docs/screenshots/projects.png`_ |
+| Mobile Responsive View | _`docs/screenshots/mobile-view.png`_ |
+| GitHub Actions Workflow (Successful Run) | _`docs/screenshots/actions-run.png`_ |
+| AWS S3 Bucket Contents | _`docs/screenshots/s3-bucket.png`_ |
+
+---
+
+## 🔮 Future Improvements
+
+- Configure **CloudFront cache invalidation** as a step in the GitHub Actions workflow so updates propagate immediately after each deployment
+- Attach a **custom domain** to the site
+- Configure **Route 53** for DNS management of the custom domain
+- Add **CloudWatch** monitoring and alarms for S3/CloudFront metrics and error rates
+- Enable **AWS WAF** for edge-level protection against common web exploits
+- Add **deployment notifications** (e.g., Slack/Email/Discord) triggered by GitHub Actions on success or failure
+
+---
+
+## 📄 Project Documentation
+
+This repository includes an extensive internal documentation set covering architecture, deployment, security, cost, SEO, performance, and accessibility — see `ARCHITECTURE.md`, `AWS-DEPLOYMENT.md`, `CLOUDFRONT.md`, `DEPLOYMENT.md`, `SECURITY.md`, `COST.md`, `PERFORMANCE.md`, `SEO.md`, `ACCESSIBILITY.md`, and the `docs/` folder.
+
+**Complete Internship Report:** _[Add link to the full Decodelabs internship report here]_
+
+---
+
+## 🎓 Learning Outcomes
+
+Through this project, the following technical skills were demonstrated and developed:
+
+- Building a responsive, accessible static website using semantic HTML5, modular CSS3, and vanilla JavaScript
+- Structuring a Git repository and collaborating through GitHub
+- Writing and debugging a **GitHub Actions** CI/CD workflow (YAML syntax, secrets, triggers)
+- Authenticating automated pipelines to AWS using IAM credentials and GitHub Secrets
+- Automating static file deployment to **Amazon S3** using the AWS CLI
+- Understanding CDN concepts, **CloudFront** distribution configuration, and **Origin Access Control**
+- Diagnosing and resolving real cloud deployment issues (bucket policies, access errors, default root objects)
+- Documenting a project's architecture, security model, and operational runbooks professionally
+
+---
+
+## 👤 Author
+
+**Malik Tayyab Jamil**
+Cloud Computing Intern @ Decodelabs | BS Software Engineering @ PAF-IAST
+
+- 💼 LinkedIn: [linkedin.com/in/malik-tayyab-jamil-74187a333](https://www.linkedin.com/in/malik-tayyab-jamil-74187a333)
+- 💻 GitHub: [github.com/tayyabjamil628-stack](https://github.com/tayyabjamil628-stack)
+- 🌐 Portfolio: [tayyabjamil628-stack.github.io/Portfolio-website](https://tayyabjamil628-stack.github.io/Portfolio-website/)
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
+
+---
+
+<p align="center">Built as part of the Decodelabs Cloud Computing Internship ☁️</p>
