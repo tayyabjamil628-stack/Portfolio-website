@@ -288,16 +288,16 @@ The site was manually tested across the following dimensions:
 
 ## 🖼️ Screenshots
 
-> Add screenshots to `docs/screenshots/` and reference them below.
+> Add screenshots to `screenshots/` and reference them below.
 
 | View | Screenshot |
 | :--- | :--- |
-| Hero / Landing Section (Light Mode) | _`docs/screenshots/hero-light.png`_ |
-| Hero / Landing Section (Dark Mode) | _`docs/screenshots/hero-dark.png`_ |
-| Projects Section | _`docs/screenshots/projects.png`_ |
-| Mobile Responsive View | _`docs/screenshots/mobile-view.png`_ |
-| GitHub Actions Workflow (Successful Run) | _`docs/screenshots/actions-run.png`_ |
-| AWS S3 Bucket Contents | _`docs/screenshots/s3-bucket.png`_ |
+| Hero / Landing Section (Light Mode) | _`screenshots/hero-light.png`_ |
+| Hero / Landing Section (Dark Mode) | _`screenshots/hero-dark.png`_ |
+| Projects Section | _`screenshots/projects.png`_ |
+| Mobile Responsive View | _`screenshots/mobile-view.png`_ |
+| GitHub Actions Workflow (Successful Run) | _`screenshots/actions-run.png`_ |
+| AWS S3 Bucket Contents | _`screenshots/s3-bucket.png`_ |
 
 ---
 
