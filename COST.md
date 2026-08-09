@@ -73,7 +73,7 @@ To prevent unexpected billing charges or DDoS cost spikes:
 
 1. **AWS Budgets Alert:**
    - Set a monthly budget threshold of **$2.00 USD**.
-   - Trigger email notifications (`tayyabjamil628@gmail.com`) if actual or forecasted costs exceed **80% ($1.60 USD)**.
+   - Trigger email notifications  if actual or forecasted costs exceed **80% ($1.60 USD)**.
 2. **Amazon CloudWatch Billing Alarm:**
    - Metric: `EstimatedCharges` in `us-east-1`.
    - Threshold: `$1.00 USD`.
