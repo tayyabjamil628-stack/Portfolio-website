@@ -74,9 +74,9 @@
     } else {
       projects.push(
         {
-          title: 'Smart Gas Leakage Detection System',
-          desc: 'Embedded IoT system with ESP8266 microcontroller and MQ-2 sensor. Features real-time SMS/Call alerts via Twilio API and live telemetry web dashboard.',
-          tags: ['C++', 'ESP8266', 'Twilio API', 'IoT', 'WebSockets']
+          title: 'DecodeLabs Cloud Deployment',
+          desc: 'Multi-target cloud web infrastructure deployment project completed during DecodeLabs internship. Features AWS S3, CloudFront CDN, EC2 with Nginx, and GitHub Pages continuous delivery.',
+          tags: ['AWS S3', 'CloudFront', 'EC2', 'Nginx', 'GitHub Pages', 'Linux']
         },
         {
           title: 'Cloud Portfolio Website',
