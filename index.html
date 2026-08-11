@@ -597,66 +597,94 @@
 
       <!-- Filter-Ready Project Grid -->
       <div class="projects-grid stagger-container">
-        <!-- PROJECT 1: Smart Gas Leakage Detection System -->
-        <article class="project-card stagger-item" data-category="iot embedded">
+        <!-- PROJECT 1: DecodeLabs Cloud Deployment -->
+        <article class="project-card stagger-item" data-category="cloud devops web">
           <div class="project-thumb-frame">
             <div class="project-thumb-graphic">
-              <!-- Custom SVG Vector Graphic for IoT Gas Sensor -->
-              <svg width="100%" height="100%" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Smart Gas Leakage Detection Diagram">
-                <rect width="400" height="200" fill="url(#bg-iot-gradient)" />
+              <!-- Custom SVG Vector Architecture Diagram for DecodeLabs Cloud Deployment -->
+              <svg width="100%" height="100%" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DecodeLabs Cloud Deployment Architecture Diagram">
+                <rect width="400" height="200" fill="url(#bg-decodelabs-gradient)" />
                 <defs>
-                  <linearGradient id="bg-iot-gradient" x1="0" y1="0" x2="400" y2="200" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="bg-decodelabs-gradient" x1="0" y1="0" x2="400" y2="200" gradientUnits="userSpaceOnUse">
                     <stop stop-color="var(--color-surface)" />
                     <stop offset="1" stop-color="var(--color-surface-hover)" />
                   </linearGradient>
                 </defs>
                 <!-- Grid Lines -->
                 <path d="M0 50H400M0 100H400M0 150H400M100 0V200M200 0V200M300 0V200" stroke="var(--color-border)" stroke-dasharray="4 4" opacity="0.4"/>
-                <!-- Sensor Node & Waves -->
-                <circle cx="200" cy="100" r="36" fill="rgba(217, 119, 6, 0.15)" stroke="var(--color-accent)" stroke-width="2"/>
-                <circle cx="200" cy="100" r="54" stroke="var(--color-accent)" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.6"/>
-                <circle cx="200" cy="100" r="72" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
-                <!-- ESP8266 Microchip icon -->
-                <rect x="182" y="82" width="36" height="36" rx="6" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="2"/>
-                <path d="M190 92H210M190 100H210M190 108H204" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round"/>
-                <!-- Alert Wave Signals -->
-                <path d="M120 100C120 80 140 70 160 100C180 130 200 100 200 100" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M200 100C200 100 220 70 240 100C260 130 280 100 280 100" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- Status text overlay -->
-                <text x="200" y="165" fill="var(--color-text-secondary)" font-family="monospace" font-size="12" text-anchor="middle">ESP8266 • MQ-2 • Blynk Cloud</text>
+                
+                <!-- Central AWS Cloud Outline -->
+                <path d="M160 82C160 68 172 56 188 56C193 46 205 38 220 38C240 38 255 50 260 64C270 64 280 72 280 82C280 94 270 101 258 101H168C158 101 150 94 150 84" fill="rgba(217, 119, 6, 0.15)" stroke="var(--color-accent)" stroke-width="2"/>
+                <text x="215" y="75" fill="var(--color-accent)" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">AWS CLOUD</text>
+
+                <!-- Cloud Nodes: S3, CloudFront, EC2 Nginx, GH Pages -->
+                <!-- S3 Box -->
+                <rect x="25" y="122" width="75" height="36" rx="5" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="1.5"/>
+                <text x="62" y="144" fill="var(--color-accent)" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">AWS S3</text>
+
+                <!-- CloudFront Box -->
+                <rect x="115" y="122" width="85" height="36" rx="5" fill="var(--color-bg)" stroke="#10b981" stroke-width="1.5"/>
+                <text x="157" y="144" fill="#10b981" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">CloudFront</text>
+
+                <!-- EC2 Nginx Box -->
+                <rect x="215" y="122" width="85" height="36" rx="5" fill="var(--color-bg)" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="257" y="144" fill="#3b82f6" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">EC2 Nginx</text>
+
+                <!-- GitHub Pages Box -->
+                <rect x="312" y="122" width="73" height="36" rx="5" fill="var(--color-bg)" stroke="#8b5cf6" stroke-width="1.5"/>
+                <text x="348" y="144" fill="#8b5cf6" font-family="sans-serif" font-size="9.5" font-weight="bold" text-anchor="middle">GH Pages</text>
+
+                <!-- Network Connections -->
+                <path d="M62 122V92H160" stroke="var(--color-accent)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <path d="M157 122V92" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <path d="M257 122V92H220" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <path d="M348 122V92H280" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+                <!-- Status Banner -->
+                <text x="200" y="182" fill="var(--color-text-secondary)" font-family="monospace" font-size="10.5" text-anchor="middle">DecodeLabs • S3 • CloudFront • EC2 Nginx • GH Pages</text>
               </svg>
             </div>
             
             <span class="project-status-badge status-completed">
-              <span class="status-dot"></span> Completed
+              <span class="status-dot"></span> Active / Deployed
             </span>
 
-            <div class="featured-ribbon">★ Featured Project</div>
+            <div class="featured-ribbon">★ DecodeLabs Internship</div>
           </div>
 
           <div class="project-card-body">
-            <h3 class="project-title">Smart Gas Leakage Detection System</h3>
+            <h3 class="project-title">DecodeLabs Cloud Deployment</h3>
             <p class="project-description">
-              Designed and developed an IoT-based gas leakage monitoring system using ESP8266, MQ-2 gas sensor, ultrasonic sensor, servo motor, buzzer, relay, and the Blynk IoT platform. The system automatically detects gas leakage, sends alerts, controls exhaust ventilation, and improves household safety.
+              Multi-target cloud web infrastructure deployment project completed during the DecodeLabs internship. Features static hosting on AWS S3 with CloudFront CDN acceleration, containerized Nginx reverse-proxy hosting on an AWS EC2 instance, and automated static web deployment via GitHub Pages.
             </p>
 
             <div class="tech-badge-group" style="margin-top: auto; padding-top: var(--space-3);">
-              <span class="tech-badge"><span class="tech-badge-icon">🔌</span> ESP8266</span>
-              <span class="tech-badge"><span class="tech-badge-icon">⚡</span> Arduino</span>
-              <span class="tech-badge"><span class="tech-badge-icon">📡</span> IoT</span>
-              <span class="tech-badge"><span class="tech-badge-icon">📲</span> Blynk</span>
-              <span class="tech-badge"><span class="tech-badge-icon">🔬</span> MQ-2</span>
-              <span class="tech-badge"><span class="tech-badge-icon">⚙️</span> Embedded C</span>
+              <span class="tech-badge"><span class="tech-badge-icon">☁️</span> AWS S3</span>
+              <span class="tech-badge"><span class="tech-badge-icon">🌐</span> CloudFront</span>
+              <span class="tech-badge"><span class="tech-badge-icon">🖥️</span> EC2 + Nginx</span>
+              <span class="tech-badge"><span class="tech-badge-icon">🐱</span> GH Pages</span>
+              <span class="tech-badge"><span class="tech-badge-icon">🐧</span> Linux</span>
+              <span class="tech-badge"><span class="tech-badge-icon">🔒</span> IAM Security</span>
             </div>
 
-            <div class="project-card-actions">
-              <a href="https://github.com/tayyabjamil628-stack" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="View Source Code on GitHub for Smart Gas Leakage Detection System">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub Code
+            <!-- Live Deployment Endpoints -->
+            <div class="project-card-actions" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); margin-top: var(--space-4);">
+              <a href="https://github.com/tayyabjamil628-stack/decodelabs-cloud-deployment" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="GitHub Repository for DecodeLabs Cloud Deployment">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
               </a>
-              <button disabled class="btn btn-secondary btn-sm" style="opacity: 0.65; cursor: not-allowed;" aria-label="Live Demo Unavailable for Hardware Project">
-                Live Demo (Hardware)
-              </button>
+              <a href="https://tayyabjamil628-stack.github.io/decodelabs-cloud-deployment/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="GitHub Pages Live Site">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                GitHub Pages
+              </a>
+              <a href="https://d2dm91yj238ptm.cloudfront.net/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="AWS CloudFront Live Endpoint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                CloudFront CDN
+              </a>
+              <a href="http://13.207.40.128" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="AWS EC2 Nginx Live Server Endpoint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                EC2 + Nginx
+              </a>
             </div>
           </div>
         </article>
